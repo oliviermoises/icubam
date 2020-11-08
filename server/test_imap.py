@@ -16,10 +16,9 @@ try:
     typ, data = imap_client.list()
 
     for m in data:
-        print (m)
         mailbox = (
             codecs.decode(m.replace(b"&", b"+"), "utf-7")
-            .split("\"/\"")[-1]
+            .split('"/"')[-1]
             .replace('"', "")
         )
         print(mailbox)
